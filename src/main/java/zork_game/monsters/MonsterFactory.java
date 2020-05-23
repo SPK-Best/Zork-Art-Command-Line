@@ -6,9 +6,7 @@ public class MonsterFactory {
         return new Monster(name, hp, attackPower);
     }
 
-    public Zork makeZork(){
-        return new Zork();
-    }
+    public Zork makeZork(){ return new Zork();}
 
     public Orc makeOrc() {return new Orc();}
 
