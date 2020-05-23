@@ -14,9 +14,6 @@ public class InfoCommand extends Command {
         System.out.println("HP: " + Game.player.hp + "/" + Game.player.MAX_HP);
         System.out.println("Attack Power: " + Game.player.attackPower);
 
-        if (Game.player.item != null) {
-            System.out.println("Carrying " + Game.player.item.getItemName() + " (" + Game.player.item.getItemType() + ")");
-        }
         System.out.println("----------");
     }
 }
