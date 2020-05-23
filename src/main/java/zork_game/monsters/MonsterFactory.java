@@ -11,4 +11,6 @@ public class MonsterFactory {
     }
 
     public Orc makeOrc() {return new Orc();}
+
+    public Giant makeGiant() {return new Giant();}
 }
