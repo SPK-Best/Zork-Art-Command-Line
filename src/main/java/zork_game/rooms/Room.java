@@ -5,21 +5,12 @@ import zork_game.monsters.Monster;
 
 public class Room {
 
-    public Room northRoom;
-    public Room southRoom;
-    public Room westRoom;
-    public Room eastRoom;
-    public Item item;
-    public Monster monster;
-
-    public Room(){
-        northRoom = null;
-        southRoom = null;
-        eastRoom = null;
-        westRoom = null;
-        item = null;
-        monster = null;
-    }
+    public Room northRoom = null;
+    public Room southRoom = null;
+    public Room westRoom = null;
+    public Room eastRoom = null;
+    public Item item = null;
+    public Monster monster = null;
 
     public void setNorthRoom(Room northRoom) {
         this.northRoom = northRoom;
