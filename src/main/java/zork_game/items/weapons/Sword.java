@@ -1,4 +1,4 @@
-package zork_game.items;
+package zork_game.items.weapons;
 
 public class Sword extends Weapons {
 

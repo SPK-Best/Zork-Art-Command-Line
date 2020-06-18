@@ -1,7 +1,7 @@
 package zork_game.rooms;
 
 import zork_game.items.Item;
-import zork_game.items.Sword;
+import zork_game.items.weapons.Sword;
 
 public class StartingRoom extends Room {
     public StartingRoom(){
