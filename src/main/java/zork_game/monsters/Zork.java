@@ -1,5 +1,5 @@
 package zork_game.monsters;
 
-public class Zork {
+public class Zork extends Monster {
 
 }

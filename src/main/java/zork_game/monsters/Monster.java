@@ -1,5 +1,7 @@
 package zork_game.monsters;
 
-public class Monster {
+import zork_game.Actor;
+
+public class Monster extends Actor {
 
 }
