@@ -1,8 +1,5 @@
 package zork_game.monsters;
 
-public class Orc extends Monster {
+public class Orc {
 
-    public Orc(){
-        super("Orc", 100, 10);
-    }
 }
