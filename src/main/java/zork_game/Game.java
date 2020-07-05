@@ -34,13 +34,14 @@ public class Game {
      * Generate all commands available for a player
      */
     private void generateCommands() {
-        commands.put("play", new PlayCommand(this));
         commands.put("exit", new ExitCommand());
-        commands.put("help", new HelpCommand());
-        commands.put("quit", new QuitCommand(this));
         commands.put("go", new GoCommand(this));
+        commands.put("help", new HelpCommand());
         commands.put("info", new InfoCommand(this));
         commands.put("map", new MapCommand(this));
+        commands.put("play", new PlayCommand(this));
+        commands.put("quit", new QuitCommand(this));
+        commands.put("use", new UseCommand(this));
     }
 
     /**
