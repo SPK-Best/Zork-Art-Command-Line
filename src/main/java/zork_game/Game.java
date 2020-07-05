@@ -1,8 +1,6 @@
 package zork_game;
 
-import zork_game.command.Command;
-import zork_game.command.MapCommand;
-import zork_game.command.PlayCommand;
+import zork_game.command.*;
 import zork_game.items.Item;
 import zork_game.monsters.Monster;
 
@@ -37,6 +35,10 @@ public class Game {
      */
     private void generateCommands() {
         commands.put("play", new PlayCommand(this));
+        commands.put("exit", new ExitCommand());
+        commands.put("help", new HelpCommand());
+        commands.put("quit", new QuitCommand(this));
+        commands.put("go", new GoCommand(this));
         commands.put("map", new MapCommand(this));
     }
 
@@ -94,6 +96,7 @@ public class Game {
         System.out.println("Welcome to Zork Game!!!");
         System.out.println("* Type \"play {map-name}\" to start a new game with chosen map");
         System.out.println("* Type \"load {save-point-name}\" to play a saved game");
+        System.out.println("* Type \"help\" to print all commands");
         System.out.println("* Type \"exit\" to exit the game");
         gameStatus = HOME_STATUS;
     }
