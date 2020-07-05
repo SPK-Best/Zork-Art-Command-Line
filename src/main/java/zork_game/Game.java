@@ -39,6 +39,7 @@ public class Game {
         commands.put("help", new HelpCommand());
         commands.put("quit", new QuitCommand(this));
         commands.put("go", new GoCommand(this));
+        commands.put("info", new InfoCommand(this));
         commands.put("map", new MapCommand(this));
     }
 

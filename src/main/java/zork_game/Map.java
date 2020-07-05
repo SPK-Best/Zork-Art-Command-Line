@@ -109,7 +109,7 @@ public class Map {
                     System.out.print(" X ");
                 }
                 else if(rooms[i][j].isItemExists() || rooms[i][j].isMonsterExist()) {
-                    System.out.print(" * ");
+                    System.out.print(" . ");
                 }
                 else {
                     System.out.print("   ");
