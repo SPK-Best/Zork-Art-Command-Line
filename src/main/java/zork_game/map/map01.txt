@@ -1,0 +1,22 @@
+5 6
+1101 1011 1010 1100 1001 1110
+0001 1010 1010 0100 0001 1110
+0101 1101 1001 0100 0011 1100
+0001 0110 0001 0000 1100 0101
+0011 1010 0010 0110 0011 0110
+item 0 0 pistol
+item 2 2 sword
+item 3 2 axe
+item 2 1 sword
+item 4 1 small_potion
+item 1 2 small_potion
+item 3 5 small_potion
+item 4 4 small_potion
+item 3 3 large_potion
+item 2 3 large_potion
+monster 1 1 zork
+monster 2 1 zork
+monster 1 0 orc
+monster 4 5 orc
+monster 3 1 giant
+monster 0 2 giant

@@ -2,6 +2,7 @@ package zork_game;
 
 import zork_game.command.Command;
 import zork_game.command.MapCommand;
+import zork_game.command.PlayCommand;
 import zork_game.items.Item;
 import zork_game.monsters.Monster;
 
@@ -35,6 +36,7 @@ public class Game {
      * Generate all commands available for a player
      */
     private void generateCommands() {
+        commands.put("play", new PlayCommand(this));
         commands.put("map", new MapCommand(this));
     }
 
