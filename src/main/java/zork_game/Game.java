@@ -34,6 +34,7 @@ public class Game {
      * Generate all commands available for a player
      */
     private void generateCommands() {
+        commands.put("attack", new AttackCommand(this));
         commands.put("exit", new ExitCommand());
         commands.put("go", new GoCommand(this));
         commands.put("help", new HelpCommand());
@@ -103,4 +104,79 @@ public class Game {
         gameStatus = HOME_STATUS;
     }
 
+    /**
+     * Fight situation (After use attack command)
+     */
+    public boolean fight(Monster monster) {
+        Scanner sc = new Scanner(System.in);
+        boolean fightState = true; // Use to switch the turn (true: playerTurn, false: monsterTurn)
+        while(true) {
+
+            // Player turn
+            if(player.isAlive()) {
+                System.out.println("\n### YOUR TURN ###");
+                System.out.printf("Your HP: %d/%d\n", player.getHp(), player.getMaxHp());
+                if(player.isCarryWeapon()) {
+                    System.out.println("You carry "+player.getWeapon().getItemName());
+                }
+                else {
+                    System.out.println("You carry no weapon.");
+                }
+
+                if(player.isCarryItem()) {
+                    System.out.println("You carry "+ player.getItem().getItemName());
+                }
+                else {
+                    System.out.println("You carry no item.");
+                }
+
+                // Print the detail of monster
+                System.out.println("\n### Monster Detail ###");
+                System.out.format("%s HP: %d/%d\n", monster.getName(), monster.getHp(), monster.getMaxHp());
+                System.out.println("\nPlease choose action: \"attack\", \"item\", \"skip\"");
+
+                System.out.print(">: ");
+                String command = sc.nextLine();
+
+                // Attack: player attack a monster (monster has a probability of evading)
+                if(command.equals("attack")) {
+                    int attackPower = player.getAttackPower() + player.getWeaponAttackPower();
+                    monster.isHitted(attackPower);
+                    fightState = !fightState;
+                }
+                else if(command.equals("item")) {           // Item: use an item
+                    if(player.isCarryItem()) {
+                        Item item = player.dropItem();
+                        System.out.format("You use %s\n", item.getItemName());
+                        item.use(player);
+                        fightState = !fightState;
+                    }
+                    else {
+                        System.out.format("You carry nothing.");
+                    }
+                }
+                else if(command.equals("skip")) {           // Skip: skip your turn
+                    System.out.println("You skip this turn");
+                    fightState = !fightState;
+                }
+                else                // Otherwise (Unknown command)
+                    System.out.println("Error: Unrecognized command");
+            }
+            else {
+                return false;
+            }
+
+            // Monster turn
+            if(monster.isAlive()) {     // Case : Monster attacks user
+                System.out.format("\n### %s TURN ###\n", monster.getName());
+                int attackPower = monster.getAttackPower();
+                player.isHitted(attackPower);
+                fightState = !fightState;
+            }
+            else {  		// Case : Monster is killed
+                System.out.format("you kill %s", monster.getName());
+                return true;
+            }
+        }
+    }
 }
