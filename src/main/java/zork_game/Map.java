@@ -63,7 +63,7 @@ public class Map {
             }
 
             // Add items and monsters
-            for(int i = height+1;i < stringArray.length; i++) {
+            for(int i = height + 1;i < stringArray.length; i++) {
                 String[] line = stringArray[i].split(" ");
                 if (line[0].equals("item")){
                     rooms[Integer.parseInt(line[1])][Integer.parseInt(line[2])].addItem(ItemFactory.makeItem(line[3]));
@@ -189,7 +189,8 @@ public class Map {
             printWriter.printf(text);
             printWriter.close();
 
-        } catch (IOException e) {
+        }
+        catch (IOException e) {
             e.printStackTrace();
             System.out.println("Error: cannot save due to error filename");
             return false;

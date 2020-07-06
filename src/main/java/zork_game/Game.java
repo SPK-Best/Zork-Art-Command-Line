@@ -40,8 +40,10 @@ public class Game {
         commands.put("go", new GoCommand(this));
         commands.put("help", new HelpCommand());
         commands.put("info", new InfoCommand(this));
+        commands.put("load", new LoadCommand(this));
         commands.put("map", new MapCommand(this));
         commands.put("play", new PlayCommand(this));
+        commands.put("save", new SaveCommand(this));
         commands.put("take", new TakeCommand(this));
         commands.put("quit", new QuitCommand(this));
         commands.put("use", new UseCommand(this));
