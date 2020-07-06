@@ -35,6 +35,7 @@ public class Game {
      */
     private void generateCommands() {
         commands.put("attack", new AttackCommand(this));
+        commands.put("drop", new DropCommand(this));
         commands.put("exit", new ExitCommand());
         commands.put("go", new GoCommand(this));
         commands.put("help", new HelpCommand());

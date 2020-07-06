@@ -23,8 +23,8 @@ public class AttackCommand extends Command {
                 System.out.println("\nYour attack power increase!!");
                 game.player.increaseAttackPower();
                 if(game.map.isAllMonsterBeKilled()) {										// Case : All monsters are killed (Player win this game)
-                    System.out.println("Congratulation!!");
-                    System.out.println("You kill all of monsters, You win");
+                    System.out.println("\nCongratulation!!");
+                    System.out.println("You kill all of monsters, You win\n");
                     game.setStartMenu();
                 }
             }
