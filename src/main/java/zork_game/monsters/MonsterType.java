@@ -2,7 +2,7 @@ package zork_game.monsters;
 
 public enum  MonsterType {
 
-    GIANT(200, 30, Giant.class, "giant"),
+    GIANT(150, 25, Giant.class, "giant"),
     ORC(100, 10, Orc.class, "orc"),
     ZORK(100, 20, Zork.class, "zork");
 
