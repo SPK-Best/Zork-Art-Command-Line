@@ -19,8 +19,9 @@ public class PlayCommand extends Command {
         String playerFilename = "./src/main/java/zork_game/map/player"+ getParameter()+".txt";
         boolean mapStatus = game.map.loadMap(mapFilename);
         boolean playerStatus = game.player.loadPlayer(playerFilename);
-        if(mapStatus && playerStatus)
+        if(mapStatus && playerStatus) {
             game.setStartPlay();
+        }
     }
 
     @Override

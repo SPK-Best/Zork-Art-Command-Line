@@ -1,6 +1,5 @@
 package zork_game;
 
-
 import zork_game.items.Item;
 import zork_game.items.weapons.Weapon;
 
@@ -15,8 +14,8 @@ import java.util.List;
 
 public class Player extends Actor {
 
-    public static final int INCREASE_ATTACK_POWER = 2;
-    public static final int INCREASE_HP = 5;
+    public static final int INCREASE_ATTACK_POWER = 2;     // Increase attack power every time Player win the battle
+    public static final int INCREASE_HP = 5;               // Increase Hp every time Player walk to other rooms
 
     public Item item;
     public Weapon weapon;
@@ -28,7 +27,15 @@ public class Player extends Actor {
         item = null;
     }
 
-    // Load a player status form filename used when load,saved file
+    /**
+     * Load a player status form filename used when load file
+     * Ex. 0 0 150 150 10
+     * line[0] = 0 (X Position)
+     * line[1] = 0 (Y Position)
+     * line[2] = 150 (Current Hp)
+     * line[3] = 150 (Max Hp)
+     * line[4] = 10 (Attack Power)
+     */
     public boolean loadPlayer(String filename) {
         try {
             Path filePath = new File(filename).toPath();
@@ -42,7 +49,7 @@ public class Player extends Actor {
             int hp = Integer.parseInt(line[2]);
             int maxHp = Integer.parseInt(line[3]);
             int attackPower = Integer.parseInt(line[4]);
-            initialize(hp, maxHp, attackPower, "You");
+            initialize(hp, maxHp, attackPower, "You");    // Initialize Player with current status
         }
         catch (IOException e) {
             System.out.println("Error: Cannot load this player file");
@@ -128,6 +135,11 @@ public class Player extends Actor {
         return 0;
     }
 
+    /**
+     * Save current Player status to the file
+     * Ex. 3 2 100 150 20
+     * It means that Player is in position (3,2) with Hp:100/150, attack power: 20
+     */
     public boolean savePlayer(String filename, String saveName) {
         String text = Integer.toString(getPosX()) + " " + Integer.toString(getPosY()) + " " + Integer.toString(getHp()) + " " + Integer.toString(getMaxHp()) + " " +Integer.toString(getAttackPower());
 

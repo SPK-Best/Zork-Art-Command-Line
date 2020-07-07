@@ -1,5 +1,8 @@
 package zork_game;
 
+/**
+ * Every actor has their own hp, maxHp, attackPower, name (Monster, Player)
+ */
 public abstract class Actor {
 
     private int maxHp;
@@ -28,11 +31,17 @@ public abstract class Actor {
         this.name = name;
     }
 
+    /**
+     * Decreased Hp when get attack
+     */
     public void decreaseHP(int deltaHp) {
         hp -= deltaHp;
         hp = Math.max(hp, 0);
     }
 
+    /**
+     * Increased Hp when use potions or walk to another room (Player)
+     */
     public void increaseHP(int deltaHp) {
         hp += deltaHp;
         hp = Math.min(hp, maxHp);
@@ -58,7 +67,7 @@ public abstract class Actor {
         return name;
     }
 
-    // Decrease this actor's hp if it is attacked
+    // Decreased this actor's hp if it is attacked
     public void isHitted(int attackPower) {
         System.out.printf("%s got attacked\n", name);
         this.decreaseHP(attackPower);

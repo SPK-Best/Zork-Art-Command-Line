@@ -15,29 +15,31 @@ public class TakeCommand extends Command {
     }
 
     public void apply() {
-        Room curRoom = game.map.getRoom(game.player.getPosX(), game.player.getPosY());
-        if (curRoom.isItemExists()) {
-            Item item = curRoom.getItem();
-            if(item instanceof Weapon) {
-                if(!game.player.isCarryWeapon()) {
+        Room curRoom = game.map.getRoom(game.player.getPosX(), game.player.getPosY());    // Get the position of the current room
+        if (curRoom.isItemExists()) {          // Case : There is item exists in this room
+            Item item = curRoom.getItem();     // Get the item
+            if(item instanceof Weapon) {                // Weapon (Axe, Pistol)
+                if(!game.player.isCarryWeapon()) {      // Player does not carry any weapon
                     System.out.format("You take %s\n", item.getItemName());
                     game.player.carryWeapon((Weapon) item);
-                    curRoom.removeItem();
-                } else {
+                    curRoom.removeItem();               // Remove that weapon from the map
+                }
+                else {                       // Case : Player already carry weapon
                     System.out.println("Cannot take it, drop your weapon first.");
                 }
             }
-            else {
-                if(!game.player.isCarryItem()) {
+            else {         // Item (Potion)
+                if(!game.player.isCarryItem()) {     // Player does not carry any item
                     System.out.format("You take %s\n", item.getItemName());
                     game.player.carryItem(item);
-                    curRoom.removeItem();
+                    curRoom.removeItem();           // Remove that item from the map
                 }
-                else {
+                else {          // Case : Player already carry item
                     System.out.println("Cannot take it, drop your item first.");
                 }
             }
-        } else {
+        }
+        else {          // Case : No item in this room
             System.out.println("No items in the room.");
         }
     }

@@ -16,7 +16,7 @@ public class AttackCommand extends Command {
     public void apply() {
         Room curRoom = game.map.getRoom(game.player.getPosX(), game.player.getPosY());		// Get the position of the current room
         if(curRoom.isMonsterExist()) {														// Case : There is a monster in this room
-            boolean result = game.fight(curRoom.getMonster()); //true=win, false=lose
+            boolean result = game.fight(curRoom.getMonster());                              // true = win, false = lose
             if(result) {																	// Case : Player win the fight
                 game.map.reduceNbOfMonsterByOne();
                 curRoom.removeMonster();

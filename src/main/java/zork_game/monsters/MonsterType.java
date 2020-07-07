@@ -1,5 +1,8 @@
 package zork_game.monsters;
 
+/**
+ * All types of monster in this game
+ */
 public enum  MonsterType {
 
     GIANT(150, 25, Giant.class, "giant"),

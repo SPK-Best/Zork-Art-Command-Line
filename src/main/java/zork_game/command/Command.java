@@ -6,6 +6,11 @@ public abstract class Command {
     private String usage;
     private int numberOfParameters;
     private String parameter;
+    /**
+     * Parameter of each command
+     * Ex. help -> 0 parameter
+     *     drop item -> 1 parameter (item)
+     */
 
     /**
      * Command includes :
@@ -19,6 +24,7 @@ public abstract class Command {
         this.numberOfParameters = numberOfParameters;
     }
 
+    // Check whether this command can be used in the current stage or not
     public abstract boolean canUse(boolean status);
 
     // Error Command

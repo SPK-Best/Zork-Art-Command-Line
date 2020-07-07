@@ -101,6 +101,7 @@ public class Game {
      */
     public void setStartMenu() {
         System.out.println("Welcome to Zork Game!!!");
+        System.out.println("!!! Objective : Kill all monsters !!!");
         System.out.println("* Type \"play {map-name}\" to start a new game with chosen map");
         System.out.println("* Type \"load {save-point-name}\" to play a saved game");
         System.out.println("* Type \"help\" to print all commands");

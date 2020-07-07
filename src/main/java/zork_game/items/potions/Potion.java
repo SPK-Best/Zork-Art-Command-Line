@@ -7,7 +7,7 @@ public abstract class Potion extends Item {
 
     @Override
     protected String ability() {
-        return "Increase player's hp by " + getPowerVolume(); // increaseHp;
+        return "Increase player's hp by " + getPowerVolume();
     }
 
     @Override

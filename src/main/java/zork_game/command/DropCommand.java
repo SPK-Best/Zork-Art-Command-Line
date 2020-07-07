@@ -15,7 +15,7 @@ public class DropCommand extends Command {
 
     @Override
     public void apply() {
-        if (getParameter().equals("item")){
+        if (getParameter().equals("item")){            // Case : Player wants to drop item
             if(game.player.isCarryItem()) {
                 Item item = game.player.dropItem();
                 System.out.format("You drop %s\n", item.getItemName());
@@ -24,7 +24,7 @@ public class DropCommand extends Command {
                 System.out.println("You carry no item");
             }
         }
-        else if (getParameter().equals("weapon")){
+        else if (getParameter().equals("weapon")){      // Case : Player wants to drop weapon
             if(game.player.isCarryWeapon()) {
                 Weapon weapon = game.player.dropWeapon();
                 System.out.format("You drop %s\n", weapon.getItemName());
@@ -32,7 +32,7 @@ public class DropCommand extends Command {
                 System.out.println("You carry no weapon");
             }
         }
-        else {
+        else {          // Case : Player does not type item or weapon
             System.out.println("Please specific weapon or item");
         }
     }

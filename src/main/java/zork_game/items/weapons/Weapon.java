@@ -7,7 +7,7 @@ public abstract class Weapon extends Item {
 
     @Override
     protected String ability() {
-        return "Increase player's attack power by " + getPowerVolume();//attackPower;
+        return "Increase player's attack power by " + getPowerVolume();
     }
 
     @Override

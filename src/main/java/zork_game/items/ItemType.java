@@ -11,9 +11,9 @@ public enum ItemType {
     AXE(10, Axe.class, "axe"),
     PISTOL(30, Pistol.class, "pistol"),
     SWORD(15, Sword.class, "sword"),
-    LARGEPOTION(50,LargePotion .class, "large_potion"),
-    MEDIUMPOTION(30,MediumPotion .class, "medium_potion"),
-    SMALLPOTION(10,SmallPotion .class, "small_potion");
+    LARGEPOTION(50,LargePotion.class, "large_potion"),
+    MEDIUMPOTION(30,MediumPotion.class, "medium_potion"),
+    SMALLPOTION(10,SmallPotion.class, "small_potion");
 
     private int itemPowerVolume;
     private Class itemClass;

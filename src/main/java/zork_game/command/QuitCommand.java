@@ -13,7 +13,7 @@ public class QuitCommand extends Command {
 
     @Override
     protected void apply() {
-        System.out.println("Quit game and return to start menu...");
+        System.out.println("Quit game and return to start menu...\n");
         game.setStartMenu();
     }
 

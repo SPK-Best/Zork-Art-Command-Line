@@ -9,9 +9,9 @@ public abstract class Item {
 
     public String getItemName() {
         return itemName;
-    }
+    }   // Get item name
 
-    protected abstract String ability();
+    protected abstract String ability();     // Ability of each item
 
     public void initialize(String itemName, int powerVolume) {
         this.itemName = itemName;
@@ -20,7 +20,7 @@ public abstract class Item {
 
     public int getPowerVolume() {
         return powerVolume;
-    }
+    }  // Get item volume
 
     public abstract void use(Player player);
 

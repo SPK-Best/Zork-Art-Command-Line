@@ -12,6 +12,9 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
 
+/**
+ * In one Room, it contains height and width of the room, number of monsters.
+ */
 public class Map {
 
     private Room[][] rooms;
@@ -24,7 +27,9 @@ public class Map {
         this.numberOfMonster = 0;
     }
 
-    // Set height and width of the map
+    /**
+     * Set height and width of the map
+     */
     public void setMapHeightWidth(int height, int width) {
         this.height = height;
         this.width = width;
@@ -36,7 +41,19 @@ public class Map {
         }
     }
 
-    // Load the file
+    /**
+     * Load the file
+     * First line contains Height, Width of the map
+     * Second line to number of Height line contains detail of each room separated by space
+     * Ex. 5 6   (Height, Width)
+     * Represent the room in N,E,S,W -> 1(Wall), 0(No Wall)
+     * 1101 1011 1010 1100 1001 1110
+     * 0001 1010 1010 0100 0001 1110
+     * 0101 1101 1001 0100 0011 1100
+     * 0001 0110 0001 0000 1100 0101
+     * 0011 1010 0010 0110 0011 0110
+     * The rest line contains items and monsters in this map
+     */
     public boolean loadMap(String filename) {
         try {
             //Load file to array of strings
@@ -62,7 +79,15 @@ public class Map {
                 }
             }
 
-            // Add items and monsters
+            /**
+             * Add items and monsters
+             * Ex. monster 1 1 zork
+             * line = monster 1 1 zork
+             * line[0] = monster
+             * line[1] = 1(height)
+             * line[2] = 1(width)
+             * line[3] = zork
+             */
             for(int i = height + 1;i < stringArray.length; i++) {
                 String[] line = stringArray[i].split(" ");
                 if (line[0].equals("item")){
@@ -82,7 +107,11 @@ public class Map {
         return true;
     }
 
-    // Show a map. Use this function when use command "map"
+    /**
+     * Print a map. Use this function when use command "map"
+     * ---+ Represent the wall in horizontal
+     * | Represent the wall in vertical
+     */
     public void showMap(int posX, int posY) {
         for(int i = 0; i < this.height; i++){
             if(i == 0) {
@@ -97,6 +126,7 @@ public class Map {
                 System.out.println();
             }
 
+            // Print vertical wall, current Player position, item, monster
             for(int j = 0;j < this.width; j++) {
                 if(j == 0) {
                     if(this.rooms[i][j].hasWWall())
@@ -138,7 +168,9 @@ public class Map {
         return rooms[i][j];
     }
 
-    // Save a map and a player status to file
+    /**
+     * Save a map and a player status to file
+     */
     public boolean saveMap(String filename, String saveName) {
         String text = "";
         text += Integer.toString(this.height) + " " + Integer.toString(this.width) + "\n";
