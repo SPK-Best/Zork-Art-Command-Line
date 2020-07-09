@@ -173,7 +173,7 @@ public class Game {
 
             // Monster turn
             if(monster.isAlive()) {     // Case : Monster attacks user
-                System.out.format("\n### %s TURN ###\n", monster.getName());
+                System.out.printf("\n### %s TURN ###\n", monster.getName());
                 int attackPower = monster.getAttackPower();
                 player.isHitted(attackPower);
                 fightState = !fightState;

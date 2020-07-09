@@ -5,9 +5,9 @@ package zork_game.monsters;
  */
 public enum  MonsterType {
 
-    GIANT(150, 25, Giant.class, "giant"),
+    GIANT(150, 20, Giant.class, "giant"),
     ORC(100, 10, Orc.class, "orc"),
-    ZORK(100, 20, Zork.class, "zork");
+    ZORK(100, 15, Zork.class, "zork");
 
     private int monsterMaxHp;
     private int monsterAttackPower;

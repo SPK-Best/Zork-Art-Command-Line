@@ -135,6 +135,7 @@ public class Map {
                         System.out.print(" ");
                 }
 
+                // posX & posY are Player's current position
                 if(i == posX && j == posY) {
                     System.out.print(" X ");
                 }
