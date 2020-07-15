@@ -17,6 +17,7 @@ public abstract class Weapon extends Item {
 
     @Override
     public void use(Player player) {
+        System.out.printf("You choose %s \n", getItemName());
     }
 
 }
